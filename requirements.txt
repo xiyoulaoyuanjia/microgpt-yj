@@ -1,2 +1,2 @@
-# microGPT has no external dependencies
-# Requires Python 3.6 or higher
+# microGPT 无外部依赖
+# 需要 Python 3.6 或更高版本

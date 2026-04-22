@@ -1,54 +1,54 @@
 # microGPT
 
-The most atomic way to train and run inference for a GPT in pure, dependency-free Python.
+在纯 Python 且零外部依赖的前提下，以最小实现方式完成 GPT 的训练与推理。
 
-This is a minimal implementation of a GPT (Generative Pre-trained Transformer) model based on Andrej Karpathy's [makemore](https://github.com/karpathy/makemore) project. The entire algorithm is contained in a single Python file with zero external dependencies.
+本项目基于 Andrej Karpathy 的 [makemore](https://github.com/karpathy/makemore) 思路，实现了一个极简 GPT（Generative Pre-trained Transformer）。全部核心算法集中在一个 Python 文件中，便于阅读与学习。
 
-## Features
+## 特性
 
-- **Pure Python**: No NumPy, PyTorch, or TensorFlow required
-- **Self-contained**: Includes automatic differentiation (autograd) implementation
-- **Minimal**: Complete GPT training and inference in < 300 lines of code
-- **Educational**: Clear implementation of transformer architecture components
+- **纯 Python**：不依赖 NumPy、PyTorch 或 TensorFlow
+- **自包含**：内置自动微分（autograd）实现
+- **极简实现**：不足 300 行代码即可完成 GPT 训练与推理
+- **教学友好**：Transformer 关键模块实现清晰
 
-## How It Works
+## 工作原理
 
-The implementation includes:
+实现包含以下部分：
 
-1. **Tokenizer**: Character-level tokenization
-2. **Autograd**: Custom automatic differentiation engine (`Value` class)
-3. **Transformer Architecture**:
-   - Multi-head attention with causal masking
-   - RMSNorm instead of LayerNorm
-   - ReLU activation instead of GeLU
-   - Residual connections
-4. **Optimizer**: Adam with learning rate decay
-5. **Training**: Trains on names dataset (downloads automatically)
+1. **分词器**：字符级 tokenization
+2. **自动微分**：自定义自动求导引擎（`Value` 类）
+3. **Transformer 结构**：
+   - 带因果掩码的多头注意力
+   - 使用 RMSNorm 替代 LayerNorm
+   - 使用 ReLU 替代 GeLU
+   - 残差连接
+4. **优化器**：带学习率衰减的 Adam
+5. **训练流程**：基于姓名数据集训练（首次会自动下载）
 
-## Usage
+## 使用方法
 
-Simply run the script:
+直接运行脚本：
 
 ```bash
 python microgpt.py
 ```
 
-The script will:
-1. Download the names dataset (if not present)
-2. Train a small GPT model on the names
-3. Generate new names after training
+脚本会自动完成：
+1. 下载姓名数据集（若本地不存在）
+2. 训练一个小型 GPT 模型
+3. 训练结束后生成新姓名
 
-## Model Configuration
+## 模型配置
 
-Default hyperparameters (easily modifiable in the code):
+默认超参数（可在代码中直接修改）：
 
-- `n_layer`: 1 (transformer layer)
-- `n_embd`: 16 (embedding dimension)
-- `n_head`: 4 (attention heads)
-- `block_size`: 16 (context length)
-- `num_steps`: 1000 (training steps)
+- `n_layer`: 1（Transformer 层数）
+- `n_embd`: 16（嵌入维度）
+- `n_head`: 4（注意力头数）
+- `block_size`: 16（上下文长度）
+- `num_steps`: 1000（训练步数）
 
-## Example Output
+## 示例输出
 
 ```
 num docs: 32033
@@ -62,19 +62,19 @@ sample  3: christopher
 ...
 ```
 
-## Educational Value
+## 学习价值
 
-This implementation is designed for learning purposes. It demonstrates:
+本实现用于教学与理解，重点展示：
 
-- How attention mechanisms work
-- How backpropagation flows through transformer layers
-- How to implement autograd from scratch
-- The complete training loop for language models
+- 注意力机制是如何工作的
+- 反向传播如何穿过 Transformer 各层
+- 自动微分如何从零实现
+- 语言模型完整训练循环的最小实现
 
-## Credits
+## 致谢
 
-Based on Andrej Karpathy's work. Original gist by [xiyoulaoyuanjia](https://gist.github.com/xiyoulaoyuanjia/6b26aee71043cb7ebe75c78044ece611).
+项目思路源于 Andrej Karpathy 的工作。原始 gist 由 [xiyoulaoyuanjia](https://gist.github.com/xiyoulaoyuanjia/6b26aee71043cb7ebe75c78044ece611) 提供。
 
-## License
+## 许可证
 
 MIT
